@@ -1,0 +1,27 @@
+{
+	"manifest_version": 2,
+	"name": "Black Friday MediaMarkt",
+	"description": "Comprueba si MediaMarkt ha subido los precios antes del Black Friday",
+	"version": "1.1.4",
+	"background": {
+		"scripts": ["bg.js"]
+	},
+	"content_scripts": [{
+		"matches": ["*://*.mediamarkt.es/*"],
+		"js": ["cs.js", "app.js"],
+		"css": ["cs.css"],
+		"run_at": "document_start",
+		"all_frames": true
+	}],
+	"icons": {
+		"128": "icons/icon128.png",
+		"16": "icons/icon16.png",
+		"48": "icons/icon48.png"
+	},
+	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+	"permissions": [
+		"<all_urls>",
+		"webRequest",
+		"webRequestBlocking"
+	]
+}
